@@ -25,6 +25,18 @@ void show_float(float x) {
 void show_pointer(void *x) {
     show_bytes((byte_pointer) &x, sizeof(void *)); //line:data:show_bytes_amp3
 }
+
+void show_short(short x) {
+    show_bytes((byte_pointer) &x, sizeof(short)); //line:data:show_bytes_amp4
+}
+
+void show_long(long x) {
+    show_bytes((byte_pointer) &x, sizeof(long)); //line:data:show_bytes_amp5
+}
+
+void show_double(double x) {
+    show_bytes((byte_pointer) &x, sizeof(double)); //line:data:show_bytes_amp6
+}
 /* $end show-bytes */
 
 
@@ -33,9 +45,16 @@ void test_show_bytes(int val) {
     int ival = val;
     float fval = (float) ival;
     int *pval = &ival;
+    short sval = (short) ival;
+    long lval = (long) ival;
+    double dval = (double) ival;
     show_int(ival);
     show_float(fval);
     show_pointer(pval);
+    show_short(sval);
+    show_long(lval);
+    show_double(dval);
+
 }
 /* $end test-show-bytes */
 
@@ -103,6 +122,7 @@ int main(int argc, char *argv[])
 {
     int val = 12345;
 
+
     if (argc > 1) {
 	if (argc > 1) {
 	    val = strtol(argv[1], NULL, 0);
@@ -110,6 +130,8 @@ int main(int argc, char *argv[])
 	printf("calling test_show_bytes\n");
 	test_show_bytes(val);
     } else {
+    printf("calling test_show_bytes\n");
+    test_show_bytes(val);
 	printf("calling show_twocomp\n");
 	show_twocomp();
 	printf("Calling simple_show_a\n");
