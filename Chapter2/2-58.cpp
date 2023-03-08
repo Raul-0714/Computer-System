@@ -7,10 +7,10 @@ typedef unsigned char *byte_pointer;
 
 int is_little_endian() {
     int x = 0x0100;
-    int is_little_endian = 1;
+    int is_little_endian = 0;
     byte_pointer start = (byte_pointer) &x;
     if (start[0] == 0x00){
-        is_little_endian = 0;
+        is_little_endian = 1;
     }
     return is_little_endian;
 }
