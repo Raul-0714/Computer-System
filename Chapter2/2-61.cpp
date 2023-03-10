@@ -1,7 +1,5 @@
 #include<stdio.h>
 
-
-
 int main(){
     int x = 0xFFFFFFFF;
     int shiftBitNumber = (sizeof(int) - 1) << 3;
